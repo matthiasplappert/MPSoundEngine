@@ -7,7 +7,7 @@
 Pod::Spec.new do |s|
   s.name             = "MPSoundEngine"
   s.version          = "1.0.0"
-  s.summary          = "A simple engine that can synthesise sounds from a given frequency for mono or stereo output."
+  s.summary          = "A simple engine for OS X that can synthesise sounds from a given frequency for mono or stereo output."
   s.description      = <<-DESC
                        An optional longer description of MPSoundEngine
 
@@ -20,9 +20,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/matthiasplappert/MPSoundEngine.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/mplappert'
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  s.platform     = :osx, '10.7'
+  s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
   s.source_files = 'Classes'
