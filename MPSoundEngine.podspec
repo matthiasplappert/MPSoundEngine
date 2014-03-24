@@ -1,19 +1,7 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "MPSoundEngine"
   s.version          = "1.0.0"
   s.summary          = "A simple engine for OS X that can synthesise sounds from a given frequency for mono or stereo output."
-  s.description      = <<-DESC
-                       An optional longer description of MPSoundEngine
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
   s.homepage         = "https://github.com/matthiasplappert/MPSoundEngine"
   s.license          = "MIT"
   s.author           = { "Matthias Plappert" => "matthiasplappert@me.com" }
