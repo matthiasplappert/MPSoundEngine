@@ -25,10 +25,36 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * `MPSoundChannel` contains information associated with an output channel.
+ * 
+ * In most cases, you will only adjust the `volume` and `frequency` properties.
+ * You can use the `phase` property of the channel to visualize the frequency.
+ * An `MPSoundEngine` object uses this information to calculate the audio signal
+ * for the given channel.
+ */
 @interface MPSoundChannel : NSObject
 
-@property (nonatomic, assign) double volume;
-@property (nonatomic, assign) double frequency;
-@property (nonatomic, assign) double phase;
+/**
+ * The frequency of the channel in Hertz.
+ *
+ * Defaults to `440.0`, which is the musicle note A.
+ */
+@property (assign) double frequency;
+
+/**
+ * The volume of the channel.
+ * 
+ * Must be a value between `0.0` and `1.0`, where `1.0` is loudest. Defaults
+ * to `0.5`.
+ */
+@property (assign) double volume;
+
+/**
+ * The current phase of the sine wave.
+ *
+ * Defaults to `0.0`.
+ */
+@property (assign) double phase;
 
 @end

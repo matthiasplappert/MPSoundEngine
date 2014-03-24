@@ -26,4 +26,14 @@
 #import "MPSoundChannel.h"
 
 @implementation MPSoundChannel
+
+- (id)init {
+    if ((self = [super init])) {
+        _frequency = 440.0;
+        _volume = 0.5;
+        _phase = 0.0;
+    }
+    return self;
+}
+
 @end

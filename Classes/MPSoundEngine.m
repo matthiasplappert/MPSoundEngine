@@ -49,6 +49,9 @@ void queueCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inB
 }
 
 - (id)initWithSampleRate:(double)sampleRate numberOfChannels:(NSUInteger)numberOfChannels {
+    NSParameterAssert(sampleRate > 0.0);
+    NSParameterAssert(numberOfChannels > 0);
+
     if ((self = [super init])) {
         // Default values.
         _sampleRate = sampleRate;
@@ -99,11 +102,12 @@ void queueCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inB
 }
 
 - (void)dealloc {
-    if (_audioQueue) {
-        AudioQueueStop(_audioQueue, true);
-        AudioQueueDispose(_audioQueue, YES);
-    }
-    if (_queueBuffers) free(_queueBuffers);
+    // Release audio queue. This will also dispose all of the queue's buffers.
+    AudioQueueStop(_audioQueue, true);
+    AudioQueueDispose(_audioQueue, YES);
+
+    // Release buffer array.
+    free(_queueBuffers);
 }
 
 #pragma mark - Actions
@@ -136,14 +140,9 @@ void queueCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inB
 
 - (void)mp_generateSoundWithQueue:(AudioQueueRef)audioQueue buffer:(AudioQueueBufferRef)buffer {
     // Render the wave
-    
-    // AudioQueueBufferRef is considered "opaque", but it's a reference to
-    // an AudioQueueBuffer which is not.
-    // All the samples manipulate this, so I'm not quite sure what they mean by opaque
-    // saying....
     SInt16 *coreAudioBuffer = (SInt16 *)buffer->mAudioData;
     
-    // Specify how many bytes we're providing
+    // Specify how many bytes we're providing.
     buffer->mAudioDataByteSize = MPSoundEngineSizeInFrames * _streamDescription.mBytesPerFrame;
     
     for (int s = 0; s < MPSoundEngineSizeInFrames * self.numberOfChannels; s += self.numberOfChannels) {
@@ -166,7 +165,7 @@ void queueCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inB
         channel.phase = fmodf(channel.phase, 2 * M_PI);
     }
     
-    // Enqueue the buffer
+    // Enqueue the buffer.
     AudioQueueEnqueueBuffer(audioQueue, buffer, 0, NULL);
 }
 

@@ -28,12 +28,33 @@
 #import <MPSoundEngine/MPSoundEngine.h>
 #import <MPSoundEngine/MPSoundChannel.h>
 
+/**
+ * `MPStereoSoundEngine` is a subclass of `MPSoundEngine` that can be used
+ * to generate sounds for two channels.
+ */
 @interface MPStereoSoundEngine : MPSoundEngine
 
-@property (nonatomic, strong) MPSoundChannel *leftChannel;
-@property (nonatomic, strong) MPSoundChannel *rightChannel;
-
+/**
+ * Initializes a `MPStereoSoundEngine` object with a default sample rate of `44100.0`.
+ * 
+ * @return The newly-initialized sound engine
+ */
 - (id)init;
+
+/**
+ * Initializes the `MPStereoSoundEngine` with the given sample rate.
+ *
+ * @note This is the designated initializer of the `MPStereoSoundEngine` class.
+ * 
+ * @param sampleRate The sample rate used by the engine to construct the signal.
+ * @return The newly-initialized sound engine
+ */
 - (id)initWithSampleRate:(double)sampleRate;
+
+/// The left channel of the sound engine.
+@property (strong, readonly) MPSoundChannel *leftChannel;
+
+/// The right channel of the sound engine.
+@property (strong, readonly) MPSoundChannel *rightChannel;
 
 @end

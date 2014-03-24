@@ -27,18 +27,57 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <MPSoundEngine/MPSoundChannel.h>
 
+/**
+ * `MPSoundEngine` is an abstract class that allows to generate sound output for
+ * a given number of channels with a given sample rate.
+ *
+ * @note You will usyally use one of the subclasses `MPMonoSoundEngine` or
+ * `MPStereoSoundEngine`.
+ */
 @interface MPSoundEngine : NSObject
 
-@property (nonatomic, assign, readonly) double sampleRate;
-@property (nonatomic, assign, readonly) NSUInteger numberOfChannels;
-
-@property (nonatomic, copy, readonly) NSArray *channels;
-
+/**
+ * Initializes the `MPSoundEngine` with the given sample rate and number of channels.
+ *
+ * @note This is the designated initializer of the `MPSoundEngine` class.
+ * 
+ * @param sampleRate The sample rate used by the engine to construct the signal.
+ * @param numberOfChannels The number of output channels that the sound engine should use.
+ * @return The newly-initialized sound engine
+ */
 - (id)initWithSampleRate:(double)sampleRate numberOfChannels:(NSUInteger)numberOfChannels;
 
-@property (nonatomic, assign, readonly, getter = isRunning) BOOL running;
+/// The sample rate of the sound engine.
+@property (assign, readonly) double sampleRate;
 
+/// The number of channels the sound engine uses.
+@property (assign, readonly) NSUInteger numberOfChannels;
+
+/*
+ * All channels of the sound engine.
+ *
+ * The length of the array is equal to `numberOfChannels`. Every item in the
+ * array is a `MPSoundChannel` object.
+ */
+@property (copy, readonly) NSArray *channels;
+
+/// @name State
+
+/// Indicates if the engine is currently running.
+@property (assign, readonly, getter = isRunning) BOOL running;
+
+/**
+ * Starts the sound engine.
+ *
+ * @note If the sound engine is already running, this method has no effect.
+ */
 - (void)start;
+
+/**
+ * Stops the sound engine.
+ *
+ * @note If the sound engine is not running, this method has no effect.
+ */
 - (void)stop;
 
 @end

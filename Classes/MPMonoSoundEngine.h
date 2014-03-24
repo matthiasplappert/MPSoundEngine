@@ -28,11 +28,30 @@
 #import <MPSoundEngine/MPSoundEngine.h>
 #import <MPSoundEngine/MPSoundChannel.h>
 
+/**
+ * `MPMonoSoundEngine` is a subclass of `MPSoundEngine` that can be used
+ * to generate sounds for a single channel.
+ */
 @interface MPMonoSoundEngine : MPSoundEngine
 
-@property (nonatomic, strong) MPSoundChannel *channel;
-
+/**
+ * Initializes a `MPMonoSoundEngine` object with a default sample rate of `44100.0`.
+ * 
+ * @return The newly-initialized sound engine
+ */
 - (id)init;
+
+/**
+ * Initializes the `MPMonoSoundEngine` with the given sample rate.
+ *
+ * @note This is the designated initializer of the `MPMonoSoundEngine` class.
+ * 
+ * @param sampleRate The sample rate used by the engine to construct the signal.
+ * @return The newly-initialized sound engine
+ */
 - (id)initWithSampleRate:(double)sampleRate;
+
+/// The single channel of the sound engine.
+@property (strong, readonly) MPSoundChannel *channel;
 
 @end
