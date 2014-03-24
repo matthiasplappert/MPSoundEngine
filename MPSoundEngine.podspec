@@ -6,20 +6,19 @@
 #
 Pod::Spec.new do |s|
   s.name             = "MPSoundEngine"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of MPSoundEngine."
+  s.version          = "1.0.0"
+  s.summary          = "A simple engine that can synthesise sounds from a given frequency for mono or stereo output."
   s.description      = <<-DESC
                        An optional longer description of MPSoundEngine
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
+  s.homepage         = "https://github.com/matthiasplappert/MPSoundEngine"
+  s.license          = "MIT"
   s.author           = { "Matthias Plappert" => "matthiasplappert@me.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/NAME'
+  s.source           = { :git => "https://github.com/matthiasplappert/MPSoundEngine.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/mplappert'
 
   # s.platform     = :ios, '5.0'
   # s.ios.deployment_target = '5.0'
@@ -31,7 +30,5 @@ Pod::Spec.new do |s|
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.frameworks = 'AudioToolbox'
 end
