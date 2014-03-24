@@ -35,7 +35,7 @@ it simply add the following line to your Podfile:
 Matthias Plappert, matthiasplappert@me.com
 
 ## Acknowledgments
-This code is partly based on an example provided by Alex Chaffee on [Stackoverflow](http://stackoverflow.com/questions/2067267/where-to-start-with-audio-synthesis-on-iphone/2067987#2067987).
+This code is partly based on an example provided by Alex Chaffee on [stackoverflow](http://stackoverflow.com/questions/2067267/where-to-start-with-audio-synthesis-on-iphone/2067987#2067987).
 
 ## License
 MPSoundEngine is available under the MIT license. See the LICENSE file for more info.
