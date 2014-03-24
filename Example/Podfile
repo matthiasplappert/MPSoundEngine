@@ -1,0 +1,7 @@
+pod "MPSoundEngine", :path => "../MPSoundEngine.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
