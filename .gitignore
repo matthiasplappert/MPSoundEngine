@@ -19,6 +19,6 @@ DerivedData
 *.hmap
 *.ipa
 
-Example/MacExample/MacExample.xcworkspace/*
-Example/MacExample/Pods/*
-Example/MacExample/MacExample.xcodeproj/project.xcworkspace/*
+Example/Example.xcworkspace/*
+Example/Pods/*
+Example/Example.xcodeproj/project.xcworkspace/*

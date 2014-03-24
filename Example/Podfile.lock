@@ -1,0 +1,14 @@
+PODS:
+  - MPSoundEngine (1.0.0)
+
+DEPENDENCIES:
+  - MPSoundEngine (from `../MPSoundEngine.podspec`)
+
+EXTERNAL SOURCES:
+  MPSoundEngine:
+    :path: ../MPSoundEngine.podspec
+
+SPEC CHECKSUMS:
+  MPSoundEngine: 87aa4ea48cadd148e22630faeef89e8fc8d30603
+
+COCOAPODS: 0.29.0

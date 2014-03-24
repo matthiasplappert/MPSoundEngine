@@ -1,6 +1,6 @@
 //
 //  MPAppDelegate.m
-//  MacExample
+//  Example
 //
 //  Created by Matthias Plappert on 24/03/14.
 //  Copyright (c) 2014 Matthias Plappert. All rights reserved.

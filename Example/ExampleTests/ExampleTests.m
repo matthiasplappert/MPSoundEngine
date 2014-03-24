@@ -1,6 +1,6 @@
 //
-//  MacExampleTests.m
-//  MacExampleTests
+//  ExampleTests.m
+//  ExampleTests
 //
 //  Created by Matthias Plappert on 24/03/14.
 //  Copyright (c) 2014 Matthias Plappert. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface MacExampleTests : XCTestCase
+@interface ExampleTests : XCTestCase
 
 @end
 
-@implementation MacExampleTests
+@implementation ExampleTests
 
 - (void)setUp
 {
