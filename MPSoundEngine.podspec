@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MPSoundEngine"
-  s.version          = "1.0.0"
+  s.version          = "1.0"
   s.summary          = "A simple engine for OS X that can synthesise sounds from a given frequency for mono or stereo output."
   s.homepage         = "https://github.com/matthiasplappert/MPSoundEngine"
   s.license          = "MIT"
